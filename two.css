@@ -1,0 +1,57 @@
+body {
+  background: #0b1d26;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* area */
+.garden {
+  position: relative;
+}
+
+/* bunga utama */
+.flower {
+  width: 60px;
+  height: 60px;
+  background: pink;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  animation: sway 2s infinite alternate ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+/* kelopak tambahan */
+.flower::before,
+.flower::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: hotpink;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.flower::before {
+  transform: translateX(-30px);
+}
+
+.flower::after {
+  transform: translateX(30px);
+}
+
+/* animasi goyang */
+@keyframes sway {
+  from { transform: rotate(-3deg); }
+  to { transform: rotate(3deg); }
+}
+
+/* saat diklik */
+.flower.grow {
+  transform: scale(1.5);
+  background: #ff4da6;
+}
